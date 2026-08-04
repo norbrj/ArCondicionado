@@ -10,17 +10,17 @@
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
 #include <DHT.h>
+#include "config.h"
 
 #define DHTPIN 2      // Pino (GPIO2) onde o DHT22 esta conectado
 #define DHTTYPE DHT22 // Modelo do sensor
 
-// ---- Configuracao de rede e MQTT ----
-const char* ssid = "SEU_WIFI_SSID";
-const char* password = "SUA_SENHA_WIFI";
-const char* mqtt_server = "test.mosquitto.org";
-const int mqtt_port = 1883;
-const char* mqtt_topic_temp = "CPD/BR/arcondicionado/temperatura";
-const char* mqtt_topic_hum = "CPD/BR/arcondicionado/umidade";
+const char* ssid = WIFI_SSID;
+const char* password = WIFI_PASSWORD;
+const char* mqtt_server = MQTT_SERVER;
+const int mqtt_port = MQTT_PORT;
+const char* mqtt_topic_temp = MQTT_TOPIC_TEMP;
+const char* mqtt_topic_hum = MQTT_TOPIC_HUM;
 
 DHT dht(DHTPIN, DHTTYPE);
 WiFiClient espClient;
